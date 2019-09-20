@@ -18,6 +18,20 @@
 >try只能拦截语言层面的异常，有些异常是语言拦截不到的，比如空指针引用，内存溢出，这些就需要用这个模块去拦截。
 >```
 
+## 模块使用方法
+>```c#
+>[DllImport("BugReportLib.dll", EntryPoint = "SetGlobalExceptionFilter", SetLastError = true, CharSet = CharSet.Ansi, ExactSpelling = false, CallingConvention = CallingConvention.StdCall)]
+>        public extern static void SetGlobalExceptionFilter(int timeTick, string productName);
+>        static void Main(string[] args)
+>        {
+>                SetGlobalExceptionFilter(15, "C#测试程序");
+>                Console.WriteLine("加载BugReportLib.dll成功！");
+>                Console.ReadLine();
+>            }
+>    
+>    只需要在程序的起始位置，调用一下接口，就可以实现崩溃的拦截
+>    ```
+
 ## 1.项目结构
 >```
 >├─dist					项目编译输出目录
