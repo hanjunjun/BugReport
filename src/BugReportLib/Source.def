@@ -1,0 +1,7 @@
+LIBRARY "BugReportLib"
+
+EXPORTS
+
+
+SetGlobalExceptionFilter @ 1
+Test @ 2
